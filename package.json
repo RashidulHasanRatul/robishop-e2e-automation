@@ -4,7 +4,10 @@
   "description": "This is my pet project and i am trying to use all kind of good practice of Cypress",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "cy:prod": "npx cypress open --env ENV=production",
+    "cy:stg": "npx cypress open --env ENV=staging",
+    "cy:qa": "npx cypress open --env ENV=qa"
   },
   "repository": {
     "type": "git",
