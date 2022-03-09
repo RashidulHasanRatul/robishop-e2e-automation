@@ -1,0 +1,22 @@
+{
+  "name": "robishop-e2e-automation",
+  "version": "1.0.0",
+  "description": "This is my pet project and i am trying to use all kind of good practice of Cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RashidulHasanRatul/robishop-e2e-automation.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RashidulHasanRatul/robishop-e2e-automation/issues"
+  },
+  "homepage": "https://github.com/RashidulHasanRatul/robishop-e2e-automation#readme",
+  "dependencies": {
+    "cypress": "^9.5.1"
+  }
+}
