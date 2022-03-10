@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/RashidulHasanRatul/robishop-e2e-automation#readme",
   "dependencies": {
-    "cypress": "^9.5.1"
+    "cypress": "^9.5.1",
+    "cypress-xpath": "^1.6.2"
   }
 }
