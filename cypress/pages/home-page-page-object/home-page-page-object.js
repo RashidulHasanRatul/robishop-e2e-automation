@@ -13,14 +13,24 @@ class robiHomePage {
   }
 
   searchBox() {
-    return cy.get('input[placeholder="Search in Robishop"]');
+    return cy.get('[data-testid="openSearchPanel"]');
   }
   campaignSection() {
-    return cy.get(".mobileCategory > .mobileCategory-title");
+  return cy.get(".col-md-9");
   }
 
-  topBrands() { 
+  topBrands() {
     return cy.get(".category-title");
   }
+
+  searchField() {
+    return cy.get(".product-listing");
+  }
+  modalSearchBox() {
+    return cy.get("#search");
+  }
+  closeSearchPanel() {
+    return cy.get('[data-testid="closeSearchPanel"]');
+  } 
 }
 export default robiHomePage;
