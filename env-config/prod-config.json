@@ -1,0 +1,7 @@
+{
+  "baseUrl": "http://google.com/",
+  "env": {
+    "userId": "789",
+    "environment": "production"
+  }
+}
