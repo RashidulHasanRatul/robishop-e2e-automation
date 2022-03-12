@@ -6,6 +6,9 @@ class userRegistration {
     createAccountButton() {
         return cy.get('[data-testid="subscribeSubmit"]');
     }
+    successRegistrationMessage() {
+        return cy.get('[data-testid="notificationMessage"]');
+    }
 
 }
 export default userRegistration;

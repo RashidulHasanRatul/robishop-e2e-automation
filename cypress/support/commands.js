@@ -15,16 +15,24 @@ Cypress.Commands.add("login", (email, password) => {});
 Cypress.Commands.add(
   "RegistrationForm",
   (email, firstName, lasName, password, repeatPassword, MobileNO) => {
-    cy.get('input[name="email"]').type(email);
-    cy.get('input[placeholder="First name *"]').type(firstName);
-    cy.get('input[name="last-name"]').type(lasName);
-    cy.get('input[name="password"]').type(password);
-    cy.get('input[name="password-confirm"]').type(repeatPassword);
-    cy.get('input[name="mobileNumber"]').type(MobileNO);
-    cy.get("#terms").click({ force: true });
+    cy.get('input[name="email"]').clear().type(email);
+
+    cy.get('input[placeholder="First name *"]').clear().type(firstName);
+    cy.get('input[name="last-name"]').clear().type(lasName);
+    cy.get('input[name="password"]').clear().type(password);
+    cy.get('input[name="password-confirm"]').clear().type(repeatPassword);
+    cy.get('input[name="mobileNumber"]').clear().type(MobileNO);
+    //cy.get("#terms").click({ force: true });
+    cy.wait(2000);
+
     cy.get('button[type="submit"]');
   }
 );
+
+Cypress.Commands.add("acceptTermsAndCondition", () => {
+  cy.get("#terms").click({ force: true });
+});
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
