@@ -33,6 +33,11 @@ Cypress.Commands.add("acceptTermsAndCondition", () => {
   cy.get("#terms").click({ force: true });
 });
 
+Cypress.Commands.add("addItemToWishlist", () => {
+  cy.get(".product-carousal").eq(0).find(".product").eq(0).click();
+  cy.get('button[data-testid="addToWishlist"]').click();
+});
+
 //
 // -- This is a child command --
 // Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
