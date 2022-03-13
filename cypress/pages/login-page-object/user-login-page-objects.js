@@ -1,12 +1,12 @@
 class userLogin {
   emailAddress() {
-    return cy.get('input[name="email"]');
+    return cy.get('input[placeholder="E-mail address *"]');
   }
   password() {
-    cy.get('input[name="password"]');
+   return cy.get('input[placeholder="Password *"]');
   }
   loginButton() {
-    cy.get('[data-testid="loginSubmit"]');
+   return cy.get('button[data-testid="loginSubmit"]');
   }
 
   successRegistrationMessage() {
