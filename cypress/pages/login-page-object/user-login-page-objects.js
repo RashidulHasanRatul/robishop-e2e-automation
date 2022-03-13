@@ -14,4 +14,3 @@ class userLogin {
   }
 }
 export default userLogin;
-//
