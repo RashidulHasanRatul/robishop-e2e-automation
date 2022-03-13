@@ -24,8 +24,8 @@ describe("User Login Test", function () {
   it("Should Check Base URL", () => {});
 
   it("Should check login Error with no input", function () {
-    userLoginObject.emailAddress().type("");
-    userLoginObject.password().type("");
+    userLoginObject.emailAddress().clear().type("");
+    userLoginObject.password().clear().type("");
     userLoginObject.loginButton().click();
     cy.wait(1000);
     userLoginObject
@@ -33,9 +33,9 @@ describe("User Login Test", function () {
       .should("contain", "Please fix the validation errors");
   });
 
-  it("Should  not login invalid Email", () => {
-    userLoginObject.emailAddress().type("test");
-    userLoginObject.password().type(this.Password);
+  it("Should  not login invalid Email", function () {
+    userLoginObject.emailAddress().clear().type("test");
+    userLoginObject.password().clear().type(this.Password);
     userLoginObject.loginButton().click();
     cy.wait(1000);
     userLoginObject
@@ -43,9 +43,9 @@ describe("User Login Test", function () {
       .should("contain", "Please fix the validation errors");
   });
 
-  it("Should  not login invalid Password", () => {
-    userLoginObject.emailAddress().type(this.email);
-    userLoginObject.password().type("test");
+  it("Should  not login invalid Password", function () {
+    userLoginObject.emailAddress().clear().type(this.email);
+    userLoginObject.password().clear().type("test");
     userLoginObject.loginButton().click();
     cy.wait(1000);
     userLoginObject
@@ -56,9 +56,9 @@ describe("User Login Test", function () {
       );
   });
 
-  it("Should  login with valid credentials", () => {
-    userLoginObject.emailAddress().type(this.email);
-    userLoginObject.password().type(this.Password);
+  it("Should  login with valid credentials", function () {
+    userLoginObject.emailAddress().clear().type(this.email);
+    userLoginObject.password().clear().type(this.Password);
     userLoginObject.loginButton().click();
     cy.wait(1000);
     userLoginObject
