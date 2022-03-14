@@ -39,6 +39,7 @@ npm run cy:prod
 - Assertion are available for all test case 
 - Many More are add in future 
 - Generate The HTML report 
+- XPath Support
 
 ## Road Map 
 - in Future BDD can be Add to this project 
