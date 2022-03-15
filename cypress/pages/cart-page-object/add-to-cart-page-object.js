@@ -4,6 +4,17 @@ class addToCart {
   }
 
   AddToCartButton(){
-      return 
+      return cy.get('[data-testid="addToCart"]');
+  }
+  cartIcon(){
+   return cy.get('[data-testid="openMicrocart"]')
+  }
+
+  cartSection(){
+   return cy.get('[data-testid="microcart"]');
+  }
+
+  closeCart(){
+    return cy.get('[data-testid="closeMicrocart"] ');
   }
 } export default addToCart;
