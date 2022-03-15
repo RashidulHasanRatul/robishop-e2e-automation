@@ -18,6 +18,9 @@ describe("User Login Test", function () {
         this.Password = data.password;
       }
     );
+  });
+
+  it("Visit the Site", function () {
     cy.visit(url);
     homepage.welcomeMessage().click();
   });
@@ -35,11 +38,23 @@ describe("User Login Test", function () {
   });
 
   it("Should add Product to Add To Cart", function () {
-    cy.wait(2000);
-    //addToCartObject.ClickOnProduct().click();
-    //addToCartObject.AddToCartButton().click();
+    addToCartObject.cartIcon().click();
+    addToCartObject.cartSection().should("be.visible");
+    addToCartObject
+      .cartSection()
+      .should("contain", "Your shopping cart is empty.");
+   // addToCartObject.cartSection().should("have.length", 0);
+   addToCartObject.closeCart().click();
+    addToCartObject.ClickOnProduct().click();
+    addToCartObject.AddToCartButton().click();
+    addToCartObject.cartIcon().click();
+    cy.wait(4000);	
+   // addToCartObject.cartSection().should("have.length", 1);
+      addToCartObject
+        .cartSection()
+        .should("not.contain", "Your shopping cart is empty.");
+  
   });
 
   it("Should  checkout with valid credentials", function () {});
 });
- 
