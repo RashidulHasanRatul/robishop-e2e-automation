@@ -49,7 +49,7 @@ describe("User Login Test", function () {
     addToCartObject.AddToCartButton().click();
     addToCartObject.cartIcon().click();
     cy.wait(4000);	
-   // addToCartObject.cartSection().should("have.length", 1);
+  
       addToCartObject
         .cartSection()
         .should("not.contain", "Your shopping cart is empty.");
