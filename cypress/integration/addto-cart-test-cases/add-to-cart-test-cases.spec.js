@@ -4,6 +4,7 @@ import { Utility } from "../../support/utility.js";
 import userLogin from "../../pages/login-page-object/user-login-page-objects.js";
 import robiHomePage from "../../pages/home-page-page-object/home-page-page-object.js";
 import addToCart from "../../pages/cart-page-object/add-to-cart-page-object.js";
+
 //Call getBaseUrl() to get environment specific url value
 const url = new Utility().getBaseUrl();
 const userLoginObject = new userLogin();
@@ -43,18 +44,15 @@ describe("User Login Test", function () {
     addToCartObject
       .cartSection()
       .should("contain", "Your shopping cart is empty.");
-   // addToCartObject.cartSection().should("have.length", 0);
-   addToCartObject.closeCart().click();
+    // addToCartObject.cartSection().should("have.length", 0);
+    addToCartObject.closeCart().click();
     addToCartObject.ClickOnProduct().click();
     addToCartObject.AddToCartButton().click();
     addToCartObject.cartIcon().click();
-    cy.wait(4000);	
-  
-      addToCartObject
-        .cartSection()
-        .should("not.contain", "Your shopping cart is empty.");
-  
+    cy.wait(4000);
+    addToCartObject
+      .cartSection()
+      .should("not.contain", "Your shopping cart is empty.");
   });
-
   it("Should  checkout with valid credentials", function () {});
 });

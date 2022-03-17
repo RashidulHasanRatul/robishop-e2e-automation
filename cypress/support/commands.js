@@ -34,7 +34,7 @@ Cypress.Commands.add("acceptTermsAndCondition", () => {
 });
 
 Cypress.Commands.add("addItemToWishlist", () => {
-  cy.get(".product-carousal").eq(0).find(".product").eq(0).click();
+  cy.get(".product-carousal").eq(0).find(".product").eq(2).click();
   cy.get('button[data-testid="addToWishlist"]').click();
 });
 

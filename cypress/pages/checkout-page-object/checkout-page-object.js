@@ -10,7 +10,10 @@ class checkout {
     return cy.get('input[name="last-name"]');
   }
   emailInCheckoutPage() {
-    return cy.get('input[name="email"]');
+    return cy.get('input[name="email-address"]');
+  }
+  continueShoppingButtonInCheckoutPage() {
+    return cy.get('[data-testid="personalDetailsSubmit"]');
   }
   gotoCheckoutButtonInCheckoutPage() {
     return cy.get('[data-testid="personalDetailsSubmit"]');

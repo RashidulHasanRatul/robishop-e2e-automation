@@ -14,7 +14,6 @@ const addToCartObject = new addToCart();
 const checkoutObject = new checkout();
 //const registrationObject = new registration();
 
-
 // Registration
 // Login
 // Add to cart
@@ -48,7 +47,7 @@ describe("Registration to checkout", function () {
       .should("contain", "You are logged in!");
   });
 
-  it("Should add Product to Add To Cart", function () {
+  it("Should add Product to Add To Cart and goto CheckOut Page", function () {
     addToCartObject.cartIcon().click();
     addToCartObject.cartSection().should("be.visible");
     addToCartObject
@@ -63,39 +62,25 @@ describe("Registration to checkout", function () {
     addToCartObject
       .cartSection()
       .should("not.contain", "Your shopping cart is empty.");
+
+    checkoutObject.gotoCheckoutButton().click();
   });
 
-  it("Should not checkout without Fill up Information", function () {
-    checkoutObject.checkoutButton().click();
-
+  it("Should not continuate to shipping  with  Blank  Information Field", function () {
+    cy.wait(2000);
+    checkoutObject.firstNameInCheckoutPage().clear().type(" ");
+    checkoutObject.lastNameInCheckoutPage().clear().type(" ");
+    checkoutObject.emailInCheckoutPage().clear().type(" ");
+    checkoutObject.continueShoppingButtonInCheckoutPage().should("be.disabled");
   });
 
-  it("Should not Proceed further with blank field", function () {
-    // Button should be disabled and not clickable with blank field
+  it("Should FillUp information and goto next Step", function () {
+    let testMail = "testmail" + Math.floor(Math.random() * 100) + "@gmail.com";
+    checkoutObject.firstNameInCheckoutPage().clear().type("Test");
+    checkoutObject.lastNameInCheckoutPage().clear().type("User");
+    checkoutObject.emailInCheckoutPage().clear().type(testMail);
+    checkoutObject.continueShoppingButtonInCheckoutPage().click();
   });
 
-  it.skip("Should  checkout with valid credentials", function () {
-    checkoutObject.cartIcon().click();
-    checkoutObject.cartSection().should("be.visible");
-    checkoutObject.cartSection().should("contain", "Your shopping cart is empty.");
-    checkoutObject.cartSection().should("have.length", 0);
-    checkoutObject.closeCart().click();
-    checkoutObject.ClickOnProduct().click();
-    checkoutObject.AddToCartButton().click();
-    checkoutObject.cartIcon().click();
-    cy.wait(4000);
-    checkoutObject.cartSection().should("not.contain", "Your shopping cart is empty.");
-    checkoutObject.checkoutButton().click();
-    cy.wait(1000);
-    checkoutObject.checkoutSection().should("be.visible");
-    checkoutObject.checkoutSection().should("contain", "Checkout");
-    checkoutObject.checkoutSection().should("contain", "Shipping");
-    checkoutObject.checkoutSection().should("contain", "Payment");
-    checkoutObject.checkoutSection().should("contain", "Order summary");
-    checkoutObject.checkoutSection().should("contain", "I confirm my order");
-    checkoutObject.checkoutSection().should("contain", "I would like to receive my order in recycled packaging");
-    checkoutObject.checkoutSection().should("contain", "I would like to receive my order in recyclable packaging");
-    checkoutObject.checkoutSection().should("contain", "I would like to receive my order in a recyclable container");
-    checkoutObject.checkoutSection().should("contain", "I would like to receive my order in a recyclable packaging");
-  })
+  
 });
