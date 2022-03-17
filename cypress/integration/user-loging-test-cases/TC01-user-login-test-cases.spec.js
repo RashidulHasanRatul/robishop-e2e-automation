@@ -64,5 +64,7 @@ describe("User Login Test", function () {
     userLoginObject
       .successRegistrationMessage()
       .should("contain", "You are logged in!");
+      cy.get('[data-testid="notificationAction1"]').click();
   });
+  
 });

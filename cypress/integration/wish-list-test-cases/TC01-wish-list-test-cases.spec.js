@@ -25,6 +25,8 @@ describe("User Register Test", () => {
   });
 
   it("User should successfully remove item from wishlist", () => {
+     cy.get('[data-testid="notificationAction1"]').click();
+     cy.wait(2000);
     cy.contains("Remove").click();
     cy.wait(2000);
     cy.contains(" Your wishlist is empty.");
