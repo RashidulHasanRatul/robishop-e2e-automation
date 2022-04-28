@@ -81,6 +81,5 @@ describe("Registration to checkout", function () {
     checkoutObject.emailInCheckoutPage().clear().type(testMail);
     checkoutObject.continueShoppingButtonInCheckoutPage().click();
   });
-
   
 });
